@@ -219,7 +219,107 @@
             
 
             <div class="article-content markdown-body">
-                
+                <h2 id="堆的后续遍历（DS排序）"><a href="#堆的后续遍历（DS排序）" class="headerlink" title="堆的后续遍历（DS排序）"></a><em>堆的后续遍历（DS排序）</em></h2><h3 id="Qustion-Description"><a href="#Qustion-Description" class="headerlink" title="Qustion Description"></a>Qustion Description</h3><p>给定一个整数序列， 把它建成最小堆，输出堆的后序遍历<br>假定序列无重复数字)</p>
+<h3 id="Input-Desescription"><a href="#Input-Desescription" class="headerlink" title="Input Desescription"></a>Input Desescription</h3><p><em>只有一行，先输入n表示序列包含n个整数，接着输入n个整数。</em></p>
+<h3 id="Output-Description"><a href="#Output-Description" class="headerlink" title="Output Description"></a>Output Description</h3><p><em>序列转变成最小堆后，输出堆的后序遍历。</em></p>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><pre><code>7 49 3 8 65 97 76 13 27
+</code></pre>
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><pre><code>97 76 38 65 49 27 13 
+</code></pre>
+<hr>
+<h5 id="Code-C"><a href="#Code-C" class="headerlink" title="Code(C++)"></a>Code(C++)</h5><pre><code>class Node&#123;
+public:
+    int data;
+    int leftchild;
+    int rightchild;
+    int parent;
+    Node()
+    &#123;
+        data = -1;
+        leftchild = -1;
+    rightchild = -1;
+    parent = -1;
+    &#125;
+&#125;;
+stack&lt;int&gt; postorder;
+void print(Node* temp,int num)
+&#123;
+    /*for (int i = 1;i &lt;= num;i++)
+    &#123;
+    cout &lt;&lt; &quot;data:&quot; &lt;&lt; temp[i].data &lt;&lt; &quot; &quot; &lt;&lt; &quot;leftchild: &quot; &lt;&lt; temp[i].leftchild &lt;&lt; &quot; &quot; &lt;&lt; &quot;rightchild: &quot; &lt;&lt; temp[i].rightchild &lt;&lt; endl;
+    &#125;*/
+    while (!postorder.empty())
+    &#123;
+        cout &lt;&lt; postorder.top() &lt;&lt; &quot; &quot;;
+        postorder.pop();
+    &#125;cout &lt;&lt; endl;
+&#125;
+
+void postOrder(Node* a, int pos)
+&#123;
+    postorder.push(a[pos].data);
+    if (a[pos].rightchild != -1)
+    &#123;
+        postOrder(a, a[pos].rightchild);
+        postOrder(a, a[pos].leftchild);
+    &#125;
+    if(a[pos].rightchild==-1&amp;&amp;a[pos].leftchild!=-1)
+     postOrder(a, a[pos].leftchild);
+&#125;
+void test()
+&#123;
+    Node* a;
+    int n;
+    cin &gt;&gt; n;
+    a = new Node[n+1];
+    for (int i = 1;i &lt;= n;i++)
+    &#123;
+        if(i/2!=0)
+        a[i].parent = i / 2;
+        if(2*i&lt;=n)
+            a[i].leftchild = 2 * i;
+        if (2 * i + 1 &lt;= n)
+            a[i].rightchild = 2 * i + 1;
+    &#125;
+    for (int i = 1;i &lt;= n;i++)
+        cin &gt;&gt; a[i].data;
+    for (int i = n;i &gt;= 1;i--)
+    &#123;
+        if (a[i].leftchild!=-1||a[i].rightchild!=-1)
+        &#123;
+            if (a[i].rightchild!=-1)
+            &#123;
+                if (a[a[i].leftchild].data &lt; a[a[i].rightchild].data &amp;&amp; a[a[i].leftchild].data &lt; a[i].data)
+                &#123;
+                    swap(a[i].data, a[a[i].leftchild].data);
+                    i = n;
+                &#125;
+                else if (a[a[i].leftchild].data &gt; a[a[i].rightchild].data &amp;&amp; a[a[i].rightchild].data &lt; a[i].data)
+                &#123;
+                    swap(a[i].data, a[a[i].rightchild].data);
+                    i = n;
+                &#125;
+            &#125;
+            else
+            &#123;
+                if (a[a[i].leftchild].data &lt; a[i].data)
+                &#123;
+                    swap(a[i].data, a[a[i].leftchild].data);
+                    i = n;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+    postOrder(a, 1);
+    print(a, n);
+
+&#125;
+int main()
+&#123;
+test();
+&#125;
+</code></pre>
+
             </div>
 
             
@@ -253,7 +353,7 @@
                 <div class="post-toc-wrap">
     <div class="post-toc">
         <div style="font-size: 1.3rem;margin-top: 0; margin-bottom: 0.8rem; transition-duration: 0.1s;"><i class="fa-solid fa-list"></i> <strong>Contents</strong></div>
-        
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E7%9A%84%E5%90%8E%E7%BB%AD%E9%81%8D%E5%8E%86%EF%BC%88DS%E6%8E%92%E5%BA%8F%EF%BC%89"><span class="nav-text">堆的后续遍历（DS排序）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Qustion-Description"><span class="nav-text">Qustion Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-Desescription"><span class="nav-text">Input Desescription</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-Description"><span class="nav-text">Output Description</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B"><span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B"><span class="nav-text">输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Code-C"><span class="nav-text">Code(C++)</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
 </div>
             </div>
