@@ -227,6 +227,15 @@
 <h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><pre><code>97 76 38 65 49 27 13 
 </code></pre>
 <hr>
+<h3 id="算法核心"><a href="#算法核心" class="headerlink" title="算法核心"></a>算法核心</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ts1.cn.mm.bing.net/th/id/R-C.e2f44ad40a537aabd14ab7e2ff92dd28?rik=NF2LS6hz2gat5A&riu=http://img.wandouip.com/crawler/article/2019217/0c91a51a37d722120aa36432b83f3f3f&ehk=dduEGgaTGTNxxclYrZLrmBcBS7gpo/DVT/icw23bBCQ=&risl=&pid=ImgRaw&r=0"
+                     
+                ></p>
+<h4 id="二叉树的表示"><a href="#二叉树的表示" class="headerlink" title="二叉树的表示"></a>二叉树的表示</h4><p>用Node数组表示二叉树，我们在初始化时将每个Node里的parent,leftchild,rightchild分别<br>用i&#x2F;2,2i,2i+1表示（这里数组下标从1开始）。</p>
+<h4 id="最小堆排序"><a href="#最小堆排序" class="headerlink" title="最小堆排序"></a>最小堆排序</h4><p>在排序过程，我们从后往前进行遍历，每次找到非叶子节点后，就用该节点与其左右孩子对比，随后<br>按需进行交换位置，在完成交换后，需要重置循环，当最后一次循环完成时，既可完成堆排序。</p>
+<h4 id="关于先序输出或者后续输出"><a href="#关于先序输出或者后续输出" class="headerlink" title="关于先序输出或者后续输出"></a>关于先序输出或者后续输出</h4><p>通过观察，可以使用一个队列或者栈，随后通过递归的方法去遍历每个节点（根据自己需要<br>的顺序），最后再做一个简单的队列 &#x2F; 栈的输出。</p>
 <h5 id="Code-C"><a href="#Code-C" class="headerlink" title="Code(C++)"></a>Code(C++)</h5><pre><code>class Node&#123;
 public:
     int data;
@@ -353,7 +362,7 @@ test();
                 <div class="post-toc-wrap">
     <div class="post-toc">
         <div style="font-size: 1.3rem;margin-top: 0; margin-bottom: 0.8rem; transition-duration: 0.1s;"><i class="fa-solid fa-list"></i> <strong>Contents</strong></div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E7%9A%84%E5%90%8E%E7%BB%AD%E9%81%8D%E5%8E%86%EF%BC%88DS%E6%8E%92%E5%BA%8F%EF%BC%89"><span class="nav-text">堆的后续遍历（DS排序）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Qustion-Description"><span class="nav-text">Qustion Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-Desescription"><span class="nav-text">Input Desescription</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-Description"><span class="nav-text">Output Description</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B"><span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B"><span class="nav-text">输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Code-C"><span class="nav-text">Code(C++)</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E7%9A%84%E5%90%8E%E7%BB%AD%E9%81%8D%E5%8E%86%EF%BC%88DS%E6%8E%92%E5%BA%8F%EF%BC%89"><span class="nav-text">堆的后续遍历（DS排序）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Qustion-Description"><span class="nav-text">Qustion Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-Desescription"><span class="nav-text">Input Desescription</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-Description"><span class="nav-text">Output Description</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B"><span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B"><span class="nav-text">输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%A0%B8%E5%BF%83"><span class="nav-text">算法核心</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">二叉树的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="nav-text">最小堆排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%85%88%E5%BA%8F%E8%BE%93%E5%87%BA%E6%88%96%E8%80%85%E5%90%8E%E7%BB%AD%E8%BE%93%E5%87%BA"><span class="nav-text">关于先序输出或者后续输出</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Code-C"><span class="nav-text">Code(C++)</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
 </div>
             </div>
